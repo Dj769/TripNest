@@ -1,0 +1,112 @@
+<style>
+  /* Navbar styling */
+  .navbar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.6rem 1rem;
+  }
+
+  /* Brand icon styling */
+  .navbar-brand {
+    font-weight: 700;
+    color: #0c77c9;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar-brand i {
+    margin-right: 6px;
+    color: #38a9ff;
+  }
+
+  /* Nav links */
+  .navbar-nav .nav-link {
+    color: #222;
+    font-weight: 500;
+    margin: 0 5px;
+    transition: color 0.2s ease;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #0c77c9;
+  }
+
+  /* Search bar */
+  .form-control {
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+  }
+
+  .form-control:focus {
+    border-color: #0c77c9;
+    box-shadow: 0 0 4px rgba(255, 56, 92, 0.3);
+  }
+
+  /* Search button */
+  .btn-search {
+    background-color: #38a9ff;
+    color: #fff;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    border: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .btn-search:hover {
+    background-color: #0c77c9;
+    transform: translateY(-1px);
+  }
+
+  /* Responsive tweaks */
+  @media (max-width: 768px) {
+    .form-control {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+
+    .btn-search {
+      width: 100%;
+    }
+  }
+</style>
+
+<nav class="navbar navbar-expand-md sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings">
+      <i class="fa-solid fa-compass"></i> TripNest
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav-explore">
+        <a class="nav-link" href="/listings">
+          <b>Explore</b>
+        </a>
+      </div>
+
+      <div class="ms-auto d-flex align-items-center">
+        <form class="d-flex me-3" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search places..." />
+          <button class="btn btn-search" type="submit">Search</button>
+        </form>
+
+        <div class="navbar-nav">
+          <a class="nav-link" href="/listings/new">List your property</a>
+          <% if(!currUser) { %>
+            <a class="nav-link" href="/signup"><b>Sign up</b></a>
+            <a class="nav-link" href="/login"><b>Log in</b></a>
+            <% } else { %>
+              <a class="nav-link" href="/logout"><b>Log out</b></a>
+              <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,221 @@
+<% layout('layouts/boilerplate') %>
+
+    <style>
+        /* FILTER SECTION */
+        #filters {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: start;
+            gap: 1.5rem;
+            margin: 1rem 0 2rem 0;
+        }
+
+        .filter {
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter div {
+            background-color: #f5f5f5;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.5rem auto;
+            transition: all 0.3s ease;
+        }
+
+        .filter i {
+            font-size: 1.5rem;
+            color: #20e478;
+        }
+
+        .filter:hover div {
+            background-color: #38a9ff;
+        }
+
+        .filter:hover i {
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .filter p {
+            margin: 0;
+            font-weight: 500;
+            color: #333;
+        }
+
+        /* TAX TOGGLE SECTION */
+        .tax-toggle {
+            border: 1px solid #ccc;
+            border-radius: 1.5rem;
+            height: 3rem;
+            padding: 0 1rem;
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .tax-toggle:hover {
+            box-shadow: 0 0 6px rgba(255, 56, 92, 0.3);
+        }
+
+        .form-check-label {
+            margin-left: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* LISTINGS GRID */
+        .listing-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card {
+            border: none;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-img-top {
+            object-fit: cover;
+            height: 15rem;
+        }
+
+        .card-body {
+            padding: 1rem;
+        }
+
+        .card-text {
+            font-size: 0.95rem;
+            color: #333;
+            margin-left: 16px;
+            margin-top: 10px;
+
+        }
+
+        .card-text b {
+            color: #000;
+        }
+
+        .tax-info {
+            display: none;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            #filters {
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .tax-toggle {
+                margin-left: 0;
+                margin-top: 1rem;
+                justify-content: center;
+            }
+        }
+    </style>
+
+    <div id="filters">
+        <div class="filter">
+            <div><i class="fa-solid fa-fire"></i></div>
+            <p>Trending</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-bed"></i></div>
+            <p>Rooms</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-water-ladder"></i></div>
+            <p>Pools</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-mountain-sun"></i></div>
+            <p>Nature</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-city"></i></div>
+            <p>Urban</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-umbrella-beach"></i></div>
+            <p>Beach</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-skiing"></i></div>
+            <p>Adventure</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-tree"></i></div>
+            <p>Forest</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-champagne-glasses"></i></div>
+            <p>Luxury</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-campground"></i></div>
+            <p>Camping</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-snowflake"></i></div>
+            <p>Winter</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-vihara"></i></div>
+            <p>Heritage</p>
+        </div>
+
+        <div class="tax-toggle">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                <label class="form-check-label" for="switchCheckDefault">Show total after taxes</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-1 mt-3">
+        <% for(let listing of allListings) { %>
+            <a href="/listings/<%= listing._id %>" class="listing-link">
+                <div class="card col">
+                    <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image">
+                    <div class="card-body">
+                        <p class="card-text">
+                            <b>
+                                <%= listing.title %>
+                            </b><br>
+                            ₹<%= listing.price.toLocaleString("en-IN") %> / night
+                                <span class="tax-info">&nbsp;+ 18% GST</span>
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <% } %>
+    </div>
+
+    <script>
+        const taxSwitch = document.getElementById("switchCheckDefault");
+        taxSwitch.addEventListener("change", () => {
+            const taxInfo = document.querySelectorAll(".tax-info");
+            taxInfo.forEach(info => {
+                info.style.display = taxSwitch.checked ? "inline" : "none";
+            });
+        });
+    </script>

@@ -1,0 +1,153 @@
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.container{
+    flex: 1;
+}
+
+.navbar{
+    height: 6rem;
+    background-color: white;
+}
+
+.fa-compass {
+    color: #fe424d;
+    font-size: 2rem;
+}
+
+.nav-link{
+    color: #222222 !important;
+}
+
+.info a{
+    text-decoration: none;
+    color: #222222;
+}
+.info a:hover{
+    text-decoration: underline;
+}
+.socials, .info, .brand{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.socials i{
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+.f-info{
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+
+.card{
+    border: none !important;
+    margin-bottom: 2rem;
+}
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+}
+.card-body{
+    padding: 0 !important;
+}
+.card-text p {
+    font-weight: 400;
+}
+
+.listing-link {
+    text-decoration: none;
+}
+
+.card-img-overlay{
+    opacity: 0;
+}
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+
+.show-img{
+    height: 30vh;
+}
+
+  /* New */
+.btn-gradient {
+        background: linear-gradient(45deg, #28a745, #20c997);
+        color: white;
+        border: none;
+        transition: all 0.3s ease;
+    }
+    .btn-gradient:hover {
+        background: linear-gradient(45deg, #20c997, #28a745);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    .form-control:focus {
+        border-color: #20c997;
+        box-shadow: 0 0 6px rgba(32, 201, 151, 0.5);
+    }
+
+ /* Edit */
+.btn-warning-gradient {
+        background: linear-gradient(45deg, #ffc107, #fd7e14);
+        color: white;
+        border: none;
+        transition: all 0.3s ease;
+    }
+    .btn-warning-gradient:hover {
+        background: linear-gradient(45deg, #fd7e14, #ffc107);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    .form-control:focus {
+        border-color: #fd7e14;
+        box-shadow: 0 0 6px rgba(253, 126, 20, 0.5);
+    }
+
+    /* Show */
+
+ .btn-warning-gradient {
+        background: linear-gradient(45deg, #ffc107, #fd7e14);
+        color: white;
+        border: none;
+        transition: all 0.3s ease;
+    }
+    .btn-warning-gradient:hover {
+        background: linear-gradient(45deg, #fd7e14, #ffc107);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn-danger-gradient {
+        background: linear-gradient(45deg, #dc3545, #b02a37);
+        color: white;
+        border: none;
+        transition: all 0.3s ease;
+    }
+    .btn-danger-gradient:hover {
+        background: linear-gradient(45deg, #b02a37, #dc3545);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    }
+
+    .card:hover {
+        transform: scale(1.02);
+        transition: transform 0.3s ease;
+    }
+
+
+    
+
+    
