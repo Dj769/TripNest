@@ -1,3 +1,5 @@
+🏠 Project Name: TripNest
+
 🔑 Core Features
 🧱 1. Listing Management (CRUD)
 
